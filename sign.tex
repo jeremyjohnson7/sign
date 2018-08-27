@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage[noTeX]{mmap}
+\usepackage[utf8x]{inputenc}
+\usepackage{microtype}
+\usepackage[letterpaper, landscape]{geometry}
+\geometry{margin=1.5cm}
+\usepackage{xcolor}
+% \usepackage{graphicx}
+\usepackage{helvet}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\newcommand{\danger}[1]{%
+    \colorbox{black}{%
+        \setlength{\fboxsep}{0.8pt}%
+        \tikz[scale=2, transform shape]%
+            \node[rectangle,%
+                rounded corners=1.8ex,%
+                line width=1pt,%
+                inner sep=0.24ex,%
+                align=center,%
+                draw=white,%
+                fill=red!84!black,%
+            ]{\textcolor{white}{\,#1\,}};%
+    }%
+}
+
+\newcommand{\sign}[5]{%
+    \thispagestyle{empty}%
+    \centering
+    \resizebox{\linewidth}{!}{\danger{#1}}%
+    \vfill%
+    \resizebox{\linewidth}{!}{#2}%
+    \vfill%
+    \resizebox{\linewidth}{!}{#3}%
+    \vfill%
+    \resizebox{\linewidth}{!}{#4}%
+    \vfill%
+    \resizebox{\linewidth}{!}{#5}%
+    \clearpage%
+}
+
+\newcommand{\condensed}[1]{{\fontseries{mc}\selectfont#1}}
+
+\begin{document}
+
+\sign{DANGER}{OXYGEN IN USE}{NO SMOKING}{\condensed{NO OPEN FLAMES}}{WITHIN 50 FEET}
+\sign{PELIGRO}{OXÍGENO EN USO}{NO FUMAR}{\condensed{NO ENCENDER FUEGO}}{DENTRO DE 50 PIES}
+
+\end{document}
